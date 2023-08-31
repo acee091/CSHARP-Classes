@@ -14,28 +14,38 @@ namespace Classes___Aula01
 
         private void btnCalculaVolume_Click(object sender, EventArgs e)
         {
-            //Instanciação da classe: Criar objeto
+            //InstanciaÃ§Ã£o da classe: Criar objeto
     //nomeClasse nomeObjeto = new MetodoCOnstrutor() -- o metodoconstrutor tem que ter o mesmo nome da classe
             Caixa cx = new Caixa(); //aloca na memoria 
 
             //Gravar valor do lado da caixa no atributo 'lado' do objeto
-            cx.lado = Convert.ToDouble(txtLado.Text);
+            cx.altura = Convert.ToDouble(txtAltura.Text);
+            cx.largura = Convert.ToDouble(txtLargura.Text);
+            cx.profundidade = Convert.ToDouble(txtProfundidade.Text);
 
-            //Invocar metódo Volume() para calcular o retornar o volume da caixa
+            //Invocar metÃ³do Volume() para calcular o retornar o volume da caixa
             double volume = cx.Volume();
 
             //Montar resposta e exibir resultado no label
-            string res = "O volume da caixa é: " + volume.ToString();
+            string res = "O volume da caixa Ã©: " + volume.ToString() + "cmÂ³";
             lblVolume.Text = res;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
     class Caixa
     {
-        public double lado;
+        public double largura;
+        public double altura;
+        public double profundidade;
         public double Volume()
         {
-            return lado * lado * lado;
+            double vol = altura * largura * profundidade;
+            return vol;
         }
     }
 }
